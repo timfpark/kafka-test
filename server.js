@@ -19,7 +19,7 @@ producer.on('ready', function () {
             { topic: 'test', messages: 'hello world', partition: 0 }
         ], function (err, data) {
             console.log('send err: ' + err);
-            console.log('send data: ' + data);
+            console.log('send data: ' + JSON.stringify(data));
         });
     });
 });
@@ -29,7 +29,7 @@ producer.on('error', err => {
 });
 
 consumer.on('message', function (message) {
-    console.log('consumed: ' + message);
+    console.log('consumed: ' + JSON.stringify(message));
 });
 
 consumer.on('error', err => {
